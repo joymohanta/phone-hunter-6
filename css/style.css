@@ -9,3 +9,21 @@ body {
 .design {
   color: orange;
 }
+.size {
+  width: 260px;
+  height: 330px;
+  margin: auto;
+  padding-top: 10px;
+}
+.part {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* a {
+  color: whitesmoke;
+  text-decoration: none;
+  background-color: #0891b2;
+  padding: 10px;
+  border-radius: 10px;
+} */
