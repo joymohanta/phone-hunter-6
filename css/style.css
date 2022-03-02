@@ -15,6 +15,15 @@ body {
   margin: auto;
   padding-top: 10px;
 }
+/* .size-detail {
+  width: 260px;
+  height: 330px;
+  padding-top: 10px;
+}
+.detail {
+  display: flex;
+  justify-content: space-between;
+} */
 .part {
   display: flex;
   justify-content: space-between;

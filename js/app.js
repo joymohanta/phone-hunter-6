@@ -37,14 +37,26 @@ const displayDetails = (phone) => {
   const detailItem = document.getElementById("cards");
   detailItem.textContent = "";
   const div = document.createElement("div");
-  div.classList.add("card");
+  // div.classList.add("card");
   div.innerHTML = `
-  <img src="${phone.image}" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
+  <div class="card mb-3">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="${phone.image}" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h6 class="card-title">${phone.name}</h6>
+              <h6 class="card-title">${phone.releaseDate}</h6>
+              <p class="card-text"><small>Chipset: ${phone.mainFeatures.chipSet}</small></p>
+              <p class="card-text"><small>Memory: ${phone.mainFeatures.memory}</small></p>
+              <p><small>Storage: ${phone.mainFeatures.storage}</small></p>
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
   `;
   detailItem.appendChild(div);
 };
