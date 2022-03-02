@@ -55,15 +55,16 @@ const displayDetails = (phone) => {
   div.innerHTML = `
   <div class="card mb-3">
         <div class="row g-0">
-          <div class="col-md-4">
+          <div class="col-md-4 ps-3 pt-2">
             <img src="${phone.image}" class="img-fluid rounded-start" alt="...">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h6 class="card-title">${phone.name}</h6>
+            <h6 class="card-title">${phone.name}</h6>
               <h6 class="card-title">${
                 phone.releaseDate || "Release date not found"
               }</h6>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h6>Main Features</h6>
               <p class="card-text"><small>Chipset: ${
                 phone.mainFeatures.chipSet
               }</small></p>
@@ -71,6 +72,9 @@ const displayDetails = (phone) => {
                 phone.mainFeatures.memory
               }</small></p>
               <p><small>Storage: ${phone.mainFeatures.storage}</small></p>
+              <p><small>Display Size: ${
+                phone.mainFeatures.displaySize
+              }</small></p>
             </div>
           </div>
         </div>
