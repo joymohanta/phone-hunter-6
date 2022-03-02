@@ -7,17 +7,15 @@ const searchPhone = () => {
     const error = document.getElementById("error");
     error.style.display = "block";
   } else {
-    //   console.log(inputText);
     fetch(`https://openapi.programming-hero.com/api/phones?search=${inputText}`)
       .then((res) => res.json())
-      .then((data) => displayPhone(data.data));
+      .then((data) => displayPhone(data.data.slice(0, 20)));
     const error = document.getElementById("error");
     error.style.display = "none";
   }
 };
 // UI Card Show
 const displayPhone = (phones) => {
-  // console.log(phones);
   const containerDiv = document.getElementById("container");
   containerDiv.textContent = "";
   phones.forEach((phone) => {
@@ -28,7 +26,7 @@ const displayPhone = (phones) => {
       <img src="${phone.image}" class="card-img-top size" alt="...">
       <div class="card-body">
         <h5 class="card-title">${phone.brand}</h5>
-        <h5 class="card-title part">${phone.phone_name} <button onclick="mobileDetails('${phone.slug}')" class = "btn">Explore</button></h5>
+        <h5 class="card-title part">${phone.phone_name} <a href="#scroll"><button onclick="mobileDetails('${phone.slug}')" class = "btn">Explore</button></a></h5>
       </div>
     </div>
       `;
@@ -37,18 +35,15 @@ const displayPhone = (phones) => {
 };
 // Card Button Section
 const mobileDetails = (slug) => {
-  // console.log(slug);
   fetch(`https://openapi.programming-hero.com/api/phone/${slug}`)
     .then((res) => res.json())
     .then((data) => displayDetails(data.data));
 };
 // Device Details Section
 const displayDetails = (phone) => {
-  // console.log(phone);
   const detailItem = document.getElementById("cards");
   detailItem.textContent = "";
   const div = document.createElement("div");
-  // div.classList.add("card");
   div.innerHTML = `
   <div class="card mb-3">
         <div class="row g-0">
