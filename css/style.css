@@ -3,36 +3,31 @@ body {
   padding: 0;
   background-color: #122239;
 }
+/* Color */
 .color {
   color: bisque;
 }
 .design {
   color: orange;
 }
+.errors {
+  display: none;
+}
+/* Card Custom Size */
 .size {
   width: 260px;
   height: 330px;
   margin: auto;
   padding-top: 10px;
 }
-/* .size-detail {
-  width: 260px;
-  height: 330px;
-  padding-top: 10px;
+.btn {
+  outline: none;
+  background-color: #0891b2;
+  color: whitesmoke;
 }
-.detail {
-  display: flex;
-  justify-content: space-between;
-} */
+/* Card Name Flex Part */
 .part {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-/* a {
-  color: whitesmoke;
-  text-decoration: none;
-  background-color: #0891b2;
-  padding: 10px;
-  border-radius: 10px;
-} */
