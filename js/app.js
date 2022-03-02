@@ -18,21 +18,29 @@ const searchPhone = () => {
 const displayPhone = (phones) => {
   const containerDiv = document.getElementById("container");
   containerDiv.textContent = "";
-  phones.forEach((phone) => {
-    const div = document.createElement("div");
-    div.classList.add("col");
-    div.innerHTML = `
-    <div class="card h-100">
-      <img src="${phone.image}" class="card-img-top size" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">${phone.brand}</h5>
-        <h5 class="card-title part">${phone.phone_name} <a href="#scroll"><button onclick="mobileDetails('${phone.slug}')" class = "btn">Explore</button></a></h5>
+  if (phones.length == 0) {
+    const errorWord = document.getElementById("error-word");
+    errorWord.style.display = "block";
+  } else {
+    phones.forEach((phone) => {
+      const div = document.createElement("div");
+      div.classList.add("col");
+      div.innerHTML = `
+      <div class="card h-100">
+        <img src="${phone.image}" class="card-img-top size" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">${phone.brand}</h5>
+          <h5 class="card-title part">${phone.phone_name} <a href="#scroll"><button onclick="mobileDetails('${phone.slug}')" class = "btn">Explore</button></a></h5>
+        </div>
       </div>
-    </div>
-      `;
-    containerDiv.appendChild(div);
-  });
+        `;
+      containerDiv.appendChild(div);
+    });
+    const errorWord = document.getElementById("error-word");
+    errorWord.style.display = "none";
+  }
 };
+
 // Card Button Section
 const mobileDetails = (slug) => {
   fetch(`https://openapi.programming-hero.com/api/phone/${slug}`)
@@ -53,9 +61,15 @@ const displayDetails = (phone) => {
           <div class="col-md-8">
             <div class="card-body">
               <h6 class="card-title">${phone.name}</h6>
-              <h6 class="card-title">${phone.releaseDate}</h6>
-              <p class="card-text"><small>Chipset: ${phone.mainFeatures.chipSet}</small></p>
-              <p class="card-text"><small>Memory: ${phone.mainFeatures.memory}</small></p>
+              <h6 class="card-title">${
+                phone.releaseDate || "Release date not found"
+              }</h6>
+              <p class="card-text"><small>Chipset: ${
+                phone.mainFeatures.chipSet
+              }</small></p>
+              <p class="card-text"><small>Memory: ${
+                phone.mainFeatures.memory
+              }</small></p>
               <p><small>Storage: ${phone.mainFeatures.storage}</small></p>
             </div>
           </div>
